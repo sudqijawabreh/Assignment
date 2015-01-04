@@ -268,7 +268,101 @@
         End If
 
 
-        winner = send()
+
+        Dim RandomObject As New Random
+        Dim PlayerPic1 As Integer
+        Dim PlayerPic2 As Integer
+
+        PlayerPic1 = 1 + RandomObject.Next(3)
+        PlayerPic2 = 1 + RandomObject.Next(3)
+
+        If PlayerPic1 = 1 Then
+            PicOne.ImageLocation = "C:\Users\Paro\Downloads\Rock.PNG"
+            PicOne.Visible = True
+        ElseIf PlayerPic1 = 2 Then
+            PicOne.ImageLocation = "C:\Users\Paro\Downloads\Paper.PNG"
+            PicOne.Visible = True
+        ElseIf PlayerPic1 = 3 Then
+            PicOne.ImageLocation = "C:\Users\Paro\Downloads\Scissors.PNG"
+            PicOne.Visible = True
+        End If
+
+        If PlayerPic2 = 1 Then
+            PicTwo.ImageLocation = "C:\Users\Paro\Downloads\Rock.PNG"
+            PicTwo.Visible = True
+        ElseIf PlayerPic2 = 2 Then
+            PicTwo.ImageLocation = "C:\Users\Paro\Downloads\Paper.PNG"
+            PicTwo.Visible = True
+        ElseIf PlayerPic2 = 3 Then
+            PicTwo.ImageLocation = "C:\Users\Paro\Downloads\Scissors.PNG"
+            PicTwo.Visible = True
+
+        End If
+
+        If PlayerPic1 = 1 And PlayerPic2 = 1 Then
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            winner = -1
+            ' MsgBox("You Tied! Click the Deal Button!", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "TIE!")
+
+        ElseIf PlayerPic1 = 2 And PlayerPic2 = 2 Then
+            ' MsgBox("You Tied! Click the Deal Button!", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "TIE!")
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            winner = -1
+
+
+        ElseIf PlayerPic1 = 3 And PlayerPic2 = 3 Then
+            'MsgBox("You Tied! Click the Deal Button!", MsgBoxStyle.Exclamation Or MsgBoxStyle.OkOnly, "TIE!")
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            winner = -1
+
+        ElseIf PlayerPic1 = 1 And PlayerPic2 = 2 Then
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            LblPlayerPoints2.Text += 1
+            winner = 2 'Winner is Player2
+
+        ElseIf PlayerPic1 = 2 And PlayerPic2 = 1 Then
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            LblPlayerPoints1.Text += 1
+            winner = 1
+        ElseIf PlayerPic1 = 1 And PlayerPic2 = 3 Then
+
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            LblPlayerPoints1.Text += 1
+            winner = 1
+        ElseIf PlayerPic1 = 3 And PlayerPic2 = 1 Then
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            LblPlayerPoints2.Text += 1
+            winner = 2
+        ElseIf PlayerPic1 = 2 And PlayerPic2 = 3 Then
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            LblPlayerPoints2.Text += 1
+            winner = 2
+        ElseIf PlayerPic1 = 3 And PlayerPic2 = 2 Then
+
+            PicOne.Visible = True
+            PicTwo.Visible = True
+            LblPlayerPoints1.Text += 1
+            winner = 1
+        Else
+            winner = -1
+
+
+        End If
         If winner = 1 Then
             LstPlayer1.Items.Add("Win!")
             LstPlayer2.Items.Add("Lose!")
@@ -286,7 +380,6 @@
 
     Private Sub TrackBar1_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrackBar1.Scroll
         Timer1.Interval = TrackBar1.Value
-        hi()
         ToolTip1.Show(Timer1.Interval.ToString, Me)
 
     End Sub
