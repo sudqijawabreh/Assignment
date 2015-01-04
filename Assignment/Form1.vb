@@ -286,7 +286,7 @@
 
     Private Sub TrackBar1_Scroll(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TrackBar1.Scroll
         Timer1.Interval = TrackBar1.Value
-
+        hi()
         ToolTip1.Show(Timer1.Interval.ToString, Me)
 
     End Sub
