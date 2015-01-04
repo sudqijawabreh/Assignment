@@ -116,36 +116,6 @@
     End Sub
 
     Private Sub btnSend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSend.Click
-        send() 'Send function
-
-
-
-    End Sub
-
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        TrackBar1.visible = True
-
-        Dim choice As String
-      
-
-        LblPlayerPoints1.Text = 0
-        LblPlayerPoints2.Text = 0
-        Timer1.Start()
-
-
-        Dim p1 As Integer = Val(LblPlayerPoints1.Text)
-        Dim p2 As Integer = Val(LblPlayerPoints2.Text)
-        If p1 = 100 Then choice = MsgBox("Congratulations " + LblPlayer1.Text + " ! You Win! Would you like to keep playing?", MsgBoxStyle.Information Or MsgBoxStyle.YesNo, "Winner!")
-        If choice = MsgBoxResult.No Then
-            Application.Exit()
-        End If
-        If p2 = 100 Then choice = MsgBox("Congratulations " + LblPlayer2.Text + "! You Win! Would you like to keep playing?", MsgBoxStyle.Information Or MsgBoxStyle.YesNo, "Winner!")
-        If choice = MsgBoxResult.No Then
-            Application.Exit()
-        End If
-    End Sub
-    Public Function send() As Integer ' Computes who is the winner then returns an integer number
-        'Declare variable
         Dim winner As Integer
         Dim RandomObject As New Random
         Dim PlayerPic1 As Integer
@@ -242,9 +212,33 @@
 
         End If
 
-        Return winner ' Returns value of winner
-    End Function
 
+
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        TrackBar1.visible = True
+
+        Dim choice As String
+      
+
+        LblPlayerPoints1.Text = 0
+        LblPlayerPoints2.Text = 0
+        Timer1.Start()
+
+
+        Dim p1 As Integer = Val(LblPlayerPoints1.Text)
+        Dim p2 As Integer = Val(LblPlayerPoints2.Text)
+        If p1 = 100 Then choice = MsgBox("Congratulations " + LblPlayer1.Text + " ! You Win! Would you like to keep playing?", MsgBoxStyle.Information Or MsgBoxStyle.YesNo, "Winner!")
+        If choice = MsgBoxResult.No Then
+            Application.Exit()
+        End If
+        If p2 = 100 Then choice = MsgBox("Congratulations " + LblPlayer2.Text + "! You Win! Would you like to keep playing?", MsgBoxStyle.Information Or MsgBoxStyle.YesNo, "Winner!")
+        If choice = MsgBoxResult.No Then
+            Application.Exit()
+        End If
+    End Sub
+   
     Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Dim p1 As Integer
         Dim p2 As Integer
